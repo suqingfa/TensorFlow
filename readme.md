@@ -1,4 +1,4 @@
-# 环境安装 
+# 1.环境安装 
 - 安装 Miniconda  
   https://mirrors.tuna.tsinghua.edu.cn/anaconda/miniconda/Miniconda3-latest-Windows-x86_64.exe
 - 运行 Anaconda Prompt (Miniconda3)
@@ -18,3 +18,15 @@
 	conda update --all  
 
 - [测试环境](1_env.py)
+
+# 2.神经网络计算过程
+
+# 3.神经网络优化
+
+# 4.神经网络八股
+
+# 5.网络八股扩展
+
+# 6.卷积神经网络
+
+# 7.循环神经网络
