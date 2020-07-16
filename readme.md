@@ -404,8 +404,14 @@ tf.keras.callbacks.ModelCheckpoint(
 history = model.fit(callbacks = [cp_callback])
 
 ## 5.4 参数提取
+model.trainable_variables
 
 ## 5.5 给图识别
+- 复现模型
+- 加载模型
+- 预测
+
+[示例](5_mnist_predict.py)
 
 # 6.卷积神经网络
 

@@ -52,3 +52,6 @@ model.fit(generator.flow(x_train, y_train, batch_size = 32),
 		  callbacks = [cp_callback])
 
 model.summary()
+
+# 显示所有参数
+print(model.trainable_variables)
