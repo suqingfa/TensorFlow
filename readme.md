@@ -371,8 +371,37 @@ summary(
 ## 5.1 自制数据集
 
 ## 5.2 数据增强
+图片数据增强  
+tf.keras.preprocessing.image.ImageDataGenerator(
+    featurewise_center=False, samplewise_center=False,
+    featurewise_std_normalization=False, samplewise_std_normalization=False,
+    zca_whitening=False, zca_epsilon=1e-06, rotation_range=0, width_shift_range=0.0,
+    height_shift_range=0.0, brightness_range=None, shear_range=0.0, zoom_range=0.0,
+    channel_shift_range=0.0, fill_mode='nearest', cval=0.0, horizontal_flip=False,
+    vertical_flip=False, rescale=None, preprocessing_function=None,
+    data_format=None, validation_split=0.0, dtype=None
+)  
+rescale:缩放  
+rotation_range:随机选装角度范围  
+width_shift_range:随机宽度偏移范围  
+height_shift_range:随机高度偏移范围  
+horizontal_flip:随机水平翻转  
+zoom_range:随机缩放范围
 
 ## 5.3 断点续训
+- 读取模型  
+model.load_weights(
+    filepath, by_name=False, skip_mismatch=False
+)
+
+- 保存模型  
+tf.keras.callbacks.ModelCheckpoint(
+    filepath, monitor='val_loss', verbose=0, save_best_only=False,
+    save_weights_only=False, mode='auto', save_freq='epoch', **kwargs
+)  
+
+- 历史  
+history = model.fit(callbacks = [cp_callback])
 
 ## 5.4 参数提取
 

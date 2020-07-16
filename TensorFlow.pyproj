@@ -23,6 +23,16 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="5_minist\0.png" />
+    <Content Include="5_minist\1.png" />
+    <Content Include="5_minist\2.png" />
+    <Content Include="5_minist\3.png" />
+    <Content Include="5_minist\4.png" />
+    <Content Include="5_minist\5.png" />
+    <Content Include="5_minist\6.png" />
+    <Content Include="5_minist\7.png" />
+    <Content Include="5_minist\8.png" />
+    <Content Include="5_minist\9.png" />
     <Content Include="md_img\2.1mp.png" />
     <Content Include="md_img\3_regularizer.jpg" />
     <Content Include="readme.md" />
@@ -52,12 +62,16 @@
     <Compile Include="4_mnist_class.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="5_mnist_class.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|ContinuumAnalytics|Anaconda37-64" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="md_img\" />
+    <Folder Include="5_minist\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
