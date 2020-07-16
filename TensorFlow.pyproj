@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fa8c34ac-30c7-4730-b007-60c65eb4884e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>3_regularizer.py</StartupFile>
+    <StartupFile>4_mnist_class.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -37,10 +37,19 @@
     <Compile Include="2_iris.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="4_iris_class.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="4_iris_sequential.py">
+      <SubType>Code</SubType>
+    </Compile>
     <Compile Include="3_loss.py">
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="3_regularizer.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="4_mnist_class.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>

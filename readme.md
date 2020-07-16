@@ -313,7 +313,70 @@ tf.optimizers.Adam(
 
 # 4.神经网络八股
 
+## 4.1 神经网络搭建八股
+tf.keras搭建神经网络
+- import
+- train test
+
+- model = tf.keras.Sequential(layers=None, name=None) 描述各层网络  
+  - 拉直层 tf.keras.layers.Flatten(
+    data_format=None, **kwargs
+) 
+  - 全连接层 tf.keras.layers.Dense(
+    units, activation=None, use_bias=True, kernel_initializer='glorot_uniform',
+    bias_initializer='zeros', kernel_regularizer=None, bias_regularizer=None,
+    activity_regularizer=None, kernel_constraint=None, bias_constraint=None,
+    **kwargs
+)  
+units：神经元数量  
+activation：激活函数，字符串给出，如sigmoid\relu\softmax\tanh  
+kernel_regularizer：正则化函数，tf.keras.regularizers.l1()\tf.keras.regularizers.l2()
+
+- model.compile 配置训练方法  
+moddel.compile(
+    optimizer='rmsprop', loss=None, metrics=None, loss_weights=None,
+    sample_weight_mode=None, weighted_metrics=None, **kwargs
+)  
+optimizer:优化器，sgd\adagrad\adam  
+loss:损失函数, mse\sparse_categorical_crossentropy  
+metrics:y值结构
+  - accuracy y和y_都是数值
+  - categorical_accuracy y和y_都是独热码
+  - sparse_categorical_accuracy y是独热码 y_是数值
+
+- model.fit 执行训练过程  
+fit(
+    x=None, y=None, batch_size=None, epochs=1, verbose=1, callbacks=None,
+    validation_split=0.0, validation_data=None, shuffle=True, class_weight=None,
+    sample_weight=None, initial_epoch=0, steps_per_epoch=None,
+    validation_steps=None, validation_batch_size=None, validation_freq=1,
+    max_queue_size=10, workers=1, use_multiprocessing=False
+)  
+validation_split:从训练集中按比例划分一部分作为测试集  
+validation_steps:多少次epoch测试一次
+
+- model.summary 打印网络结构   
+summary(
+    line_length=None, positions=None, print_fn=None
+)
+
+## 4.2 iris复现
+[使用Sequential](4_iris_sequential.py)
+
+## 4.3 训练minst
+[示例](4_mnist_class.py)
+
 # 5.网络八股扩展
+
+## 5.1 自制数据集
+
+## 5.2 数据增强
+
+## 5.3 断点续训
+
+## 5.4 参数提取
+
+## 5.5 给图识别
 
 # 6.卷积神经网络
 
