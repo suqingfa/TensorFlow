@@ -29,12 +29,26 @@ class MnistModel(tf.keras.Model):
 
 model = MnistModel()
 
+# 读取模型
+checkpoint_path = "5_mnist/mnist.ckpt"
+if os.path.exists(checkpoint_path + ".index"):
+	print("load model")
+	model.load_weights(checkpoint_path)
+
+# 保存模型
+cp_callback = tf.keras.callbacks.ModelCheckpoint(
+	checkpoint_path,
+	save_weights_only = True, 
+	save_best_only = True
+)
+
 model.compile(optimizer = "adam", 
 			  loss = "sparse_categorical_crossentropy", 
 			  metrics = ["sparse_categorical_accuracy"])
 
 model.fit(generator.flow(x_train, y_train, batch_size = 32), 
 		  epochs = 5, 
-		  validation_data = (x_test, y_test))
+		  validation_data = (x_test, y_test),
+		  callbacks = [cp_callback])
 
 model.summary()
