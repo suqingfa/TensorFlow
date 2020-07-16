@@ -1,12 +1,12 @@
 import tensorflow as tf
-import zlib
+import os
 
 (x_train, y_train),(x_test, y_test) =  tf.keras.datasets.mnist.load_data()
+x_train, x_test = x_train / 255.0, x_test / 255.0
 
 # 数据增强
 x_train = x_train.reshape(x_train.shape[0], x_train.shape[1], x_train.shape[2], 1)
 generator = tf.keras.preprocessing.image.ImageDataGenerator(
-	rescale = 255, 
 	rotation_range = 45,
 	width_shift_range = 0.15,
 	height_shift_range = 0.15,

@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fa8c34ac-30c7-4730-b007-60c65eb4884e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>4_mnist_class.py</StartupFile>
+    <StartupFile>5_mnist_class.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -23,16 +23,16 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
-    <Content Include="5_minist\0.png" />
-    <Content Include="5_minist\1.png" />
-    <Content Include="5_minist\2.png" />
-    <Content Include="5_minist\3.png" />
-    <Content Include="5_minist\4.png" />
-    <Content Include="5_minist\5.png" />
-    <Content Include="5_minist\6.png" />
-    <Content Include="5_minist\7.png" />
-    <Content Include="5_minist\8.png" />
-    <Content Include="5_minist\9.png" />
+    <Content Include="5_mnist\0.png" />
+    <Content Include="5_mnist\1.png" />
+    <Content Include="5_mnist\2.png" />
+    <Content Include="5_mnist\3.png" />
+    <Content Include="5_mnist\4.png" />
+    <Content Include="5_mnist\5.png" />
+    <Content Include="5_mnist\6.png" />
+    <Content Include="5_mnist\7.png" />
+    <Content Include="5_mnist\8.png" />
+    <Content Include="5_mnist\9.png" />
     <Content Include="md_img\2.1mp.png" />
     <Content Include="md_img\3_regularizer.jpg" />
     <Content Include="readme.md" />
@@ -71,7 +71,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="md_img\" />
-    <Folder Include="5_minist\" />
+    <Folder Include="5_mnist\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
