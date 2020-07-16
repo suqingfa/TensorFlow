@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fa8c34ac-30c7-4730-b007-60c65eb4884e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>1_env.py</StartupFile>
+    <StartupFile>2_iris.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -23,15 +23,25 @@
     <EnableUnmanagedDebugging>false</EnableUnmanagedDebugging>
   </PropertyGroup>
   <ItemGroup>
+    <Content Include="md_img\2.1mp.png" />
     <Content Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="1_env.py">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="2_back_propagation.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="2_iris.py">
+      <SubType>Code</SubType>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <InterpreterReference Include="Global|ContinuumAnalytics|Anaconda37-64" />
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="md_img\" />
   </ItemGroup>
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v$(VisualStudioVersion)\Python Tools\Microsoft.PythonTools.targets" />
   <!-- Uncomment the CoreCompile target to enable the Build command in
