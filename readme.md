@@ -414,5 +414,129 @@ model.trainable_variables
 [示例](5_mnist_predict.py)
 
 # 6.卷积神经网络
+卷积计算是一种有效提取图像特征的方法，可以减少待训参数数量
+
+## 6.1 卷积计算过程
+![CNN单通道计算过程](md_img/6_cnn_1.jpg)
+![CNN三通道计算过程](md_img/6_cnn_2.jpg)
+
+## 6.2 感受野
+输出特征图上的一个像素点，在原始输入图像上映射区域的大小。  
+两层3x3和卷积核和一层5x5的卷积和的感受野都是5，
+但是两层3x3的卷积核计算量小待训参数少，所以通常使用两层3x3的卷积核代替一层5x5卷积核
+
+## 6.3 全零填充
+有时候，希望保持卷积计算后的图像大小与原始图像大小一致，
+可以在原始图像周围填充零后再进行卷积计算。
+
+padding="SAME"/"VAILD"
+
+## 6.4 TF描述卷积计算层
+tf.keras.layers.Conv1D(
+    filters, kernel_size, strides=1, padding='valid', data_format='channels_last',
+    dilation_rate=1, activation=None, use_bias=True,
+    kernel_initializer='glorot_uniform', bias_initializer='zeros',
+    kernel_regularizer=None, bias_regularizer=None, activity_regularizer=None,
+    kernel_constraint=None, bias_constraint=None, **kwargs
+)
+
+tf.keras.layers.Conv2D(
+    filters, kernel_size, strides=(1, 1), padding='valid', data_format=None,
+    dilation_rate=(1, 1), activation=None, use_bias=True,
+    kernel_initializer='glorot_uniform', bias_initializer='zeros',
+    kernel_regularizer=None, bias_regularizer=None, activity_regularizer=None,
+    kernel_constraint=None, bias_constraint=None, **kwargs
+)
+
+tf.keras.layers.Conv2DTranspose(
+    filters, kernel_size, strides=(1, 1), padding='valid', output_padding=None,
+    data_format=None, dilation_rate=(1, 1), activation=None, use_bias=True,
+    kernel_initializer='glorot_uniform', bias_initializer='zeros',
+    kernel_regularizer=None, bias_regularizer=None, activity_regularizer=None,
+    kernel_constraint=None, bias_constraint=None, **kwargs
+)
+
+tf.keras.layers.Conv3D(
+    filters, kernel_size, strides=(1, 1, 1), padding='valid', data_format=None,
+    dilation_rate=(1, 1, 1), activation=None, use_bias=True,
+    kernel_initializer='glorot_uniform', bias_initializer='zeros',
+    kernel_regularizer=None, bias_regularizer=None, activity_regularizer=None,
+    kernel_constraint=None, bias_constraint=None, **kwargs
+)
+
+tf.keras.layers.Conv3DTranspose(
+    filters, kernel_size, strides=(1, 1, 1), padding='valid', output_padding=None,
+    data_format=None, activation=None, use_bias=True,
+    kernel_initializer='glorot_uniform', bias_initializer='zeros',
+    kernel_regularizer=None, bias_regularizer=None, activity_regularizer=None,
+    kernel_constraint=None, bias_constraint=None, **kwargs
+)
+
+## 6.5 批标准化 BN
+神经网络对0附近的数据更敏感  
+标准化:使数据符合均值为0标准差为1的分布  
+批标准化:对一批数据做标准化处理
+
+tf.keras.layers.BatchNormalization(
+    axis=-1, momentum=0.99, epsilon=0.001, center=True, scale=True,
+    beta_initializer='zeros', gamma_initializer='ones',
+    moving_mean_initializer='zeros', moving_variance_initializer='ones',
+    beta_regularizer=None, gamma_regularizer=None, beta_constraint=None,
+    gamma_constraint=None, renorm=False, renorm_clipping=None, renorm_momentum=0.99,
+    fused=None, trainable=True, virtual_batch_size=None, adjustment=None, name=None,
+    **kwargs
+)
+
+BN层位于卷积层后，激活函数层前
+
+## 6.6 池化
+减少神经网络中特征数量，
+最大值池化可以提取图像纹理，
+均值池化可以保留图像背景特征
+
+用2x2的池化核步长为2进行池化  
+![max pooling](md_img/6_pooling_max.png)
+![mean pooling](md_img/6_pooling_mean.png)
+
+tf.keras.layers.MaxPool2D(
+    pool_size=(2, 2), strides=None, padding='valid', data_format=None, **kwargs
+)
+
+tf.keras.layers.AvgPool2D(
+    pool_size=(2, 2), strides=None, padding='valid', data_format=None, **kwargs
+)
+
+## 6.7 舍弃
+为了缓解过拟合，在训练时，将一部分神经元按一定概率暂时舍弃。
+在使用时，被舍弃的神经元恢复连接。
+
+tf.keras.layers.Dropout(
+    rate, noise_shape=None, seed=None, **kwargs
+)
+
+## 6.8 卷积神经网络
+卷积就是特征提取，CBAPD 
+卷积-批标准化-激活-池化-舍弃
+
+## 6.9 卷积神经网络示例
+[卷积网络基本结构](6_cifar.py)
+
+经典卷积网络:
+- LetNet 1998  
+卷积网络开篇之作，通过共享卷积核，减小网络参数
+
+- AlexNet 2012  
+使用relu激活函数提升训练速度，
+使用丢弃，缓解过拟合
+
+- VGGNet 2014  
+小尺寸卷积核减小网络参数，网络结构调整，并行加速
+
+- InceptionNet 2014  
+一层使用不同尺寸卷积核，提升感知能力，
+使用标准化，缓解梯度消失
+
+- ResNet 2015  
+层间跳连，引入前方信息，缓解网络退化，使网络加深成为可能
 
 # 7.循环神经网络

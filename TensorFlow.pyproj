@@ -4,7 +4,7 @@
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>fa8c34ac-30c7-4730-b007-60c65eb4884e</ProjectGuid>
     <ProjectHome>.</ProjectHome>
-    <StartupFile>5_mnist_predict.py</StartupFile>
+    <StartupFile>6_cifar.py</StartupFile>
     <SearchPath>
     </SearchPath>
     <WorkingDirectory>.</WorkingDirectory>
@@ -35,6 +35,12 @@
     <Content Include="5_mnist\9.png" />
     <Content Include="md_img\2.1mp.png" />
     <Content Include="md_img\3_regularizer.jpg" />
+    <Content Include="md_img\6_alexnet.png" />
+    <Content Include="md_img\6_cnn_2.jpg" />
+    <Content Include="md_img\6_cnn_1.jpg" />
+    <Content Include="md_img\6_letnet.png" />
+    <Content Include="md_img\6_pooling_mean.png" />
+    <Content Include="md_img\6_pooling_max.png" />
     <Content Include="readme.md" />
   </ItemGroup>
   <ItemGroup>
@@ -66,6 +72,9 @@
       <SubType>Code</SubType>
     </Compile>
     <Compile Include="5_mnist_predict.py">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="6_cifar.py">
       <SubType>Code</SubType>
     </Compile>
   </ItemGroup>
